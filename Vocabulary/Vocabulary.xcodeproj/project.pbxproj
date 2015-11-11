@@ -12,6 +12,10 @@
 		BB58BF5A1BF1BE8C0020AEB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB58BF581BF1BE8C0020AEB8 /* Main.storyboard */; };
 		BB58BF5C1BF1BE8C0020AEB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB58BF5B1BF1BE8C0020AEB8 /* Assets.xcassets */; };
 		BB58BF5F1BF1BE8C0020AEB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB58BF5D1BF1BE8C0020AEB8 /* LaunchScreen.storyboard */; };
+		BB58BF671BF1C5500020AEB8 /* NetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58BF661BF1C5500020AEB8 /* NetworkInterface.swift */; };
+		BB58BF691BF1CC6D0020AEB8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58BF681BF1CC6D0020AEB8 /* WebViewController.swift */; };
+		BB58BF6B1BF2D27D0020AEB8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58BF6A1BF2D27D0020AEB8 /* UserInfo.swift */; };
+		BB58BF6D1BF2D7620020AEB8 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB58BF6C1BF2D7620020AEB8 /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		BB58BF5B1BF1BE8C0020AEB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB58BF5E1BF1BE8C0020AEB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB58BF601BF1BE8C0020AEB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB58BF661BF1C5500020AEB8 /* NetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterface.swift; sourceTree = "<group>"; };
+		BB58BF681BF1CC6D0020AEB8 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BB58BF6A1BF2D27D0020AEB8 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		BB58BF6C1BF2D7620020AEB8 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,10 @@
 			children = (
 				BB58BF541BF1BE8C0020AEB8 /* AppDelegate.swift */,
 				BB58BF561BF1BE8C0020AEB8 /* ViewController.swift */,
+				BB58BF681BF1CC6D0020AEB8 /* WebViewController.swift */,
+				BB58BF661BF1C5500020AEB8 /* NetworkInterface.swift */,
+				BB58BF6A1BF2D27D0020AEB8 /* UserInfo.swift */,
+				BB58BF6C1BF2D7620020AEB8 /* Utility.swift */,
 				BB58BF581BF1BE8C0020AEB8 /* Main.storyboard */,
 				BB58BF5B1BF1BE8C0020AEB8 /* Assets.xcassets */,
 				BB58BF5D1BF1BE8C0020AEB8 /* LaunchScreen.storyboard */,
@@ -137,6 +149,10 @@
 			files = (
 				BB58BF571BF1BE8C0020AEB8 /* ViewController.swift in Sources */,
 				BB58BF551BF1BE8C0020AEB8 /* AppDelegate.swift in Sources */,
+				BB58BF6D1BF2D7620020AEB8 /* Utility.swift in Sources */,
+				BB58BF671BF1C5500020AEB8 /* NetworkInterface.swift in Sources */,
+				BB58BF6B1BF2D27D0020AEB8 /* UserInfo.swift in Sources */,
+				BB58BF691BF1CC6D0020AEB8 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +302,7 @@
 				BB58BF651BF1BE8C0020AEB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
