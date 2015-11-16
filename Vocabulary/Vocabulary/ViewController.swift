@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    let network = NetworkInterface()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,17 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func buttonTapped(sender: UIButton) {
+    
+    // MARK: - UITextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if let word = textField.text {
+            network.searchWord(word, callback: { (json) -> Void in
+                if let json = json {
+                    print(json)
+                }
+            })
+        }
+        return true
     }
 }
 

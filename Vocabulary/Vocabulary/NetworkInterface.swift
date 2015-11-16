@@ -124,6 +124,100 @@ class NetworkInterface: NSObject, NSURLSessionDelegate {
         task.resume()
     }
     
+    func searchWord(word: String, callback:(json: AnyObject?) -> Void) {
+        let link = "https://api.shanbay.com/bdc/search/?word=" + word
+        guard let url = NSURL(string: link) else {
+            return
+        }
+        let task = session.dataTaskWithURL(url) { (data, response, error) -> Void in
+            guard let data = data else {
+                print(error)
+                return
+            }
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                callback(json: json)
+                print(json)
+            } catch _ {
+                print("JSON serialization failed")
+            }
+            
+            let temp = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(temp)
+        }
+        task.resume()
+    }
+    
+    func learnWord(wordID: String, callback:(json: AnyObject?) -> Void) {
+        let link = "https://api.shanbay.com/bdc/learning/"
+        guard let url = NSURL(string: link) else {
+            return
+        }
+        let data = ["id":wordID]
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        do {
+            try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions(rawValue: 0))
+        } catch _ {
+            
+        }
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
+            print(response)
+            guard let data = data else {
+                print(error)
+                return
+            }
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                callback(json: json)
+                print(json)
+            } catch _ {
+                print("JSON serialization failed")
+            }
+            
+            let temp = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(temp)
+        }
+        task.resume()
+    }
+    
+    func forgetWord(learningID: String, callback:(json: AnyObject?) -> Void) {
+        let link = "https://api.shanbay.com/bdc/learning/" + learningID + "/"
+        guard let url = NSURL(string: link) else {
+            return
+        }
+        let data = ["forget":1]
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "PUT"
+        do {
+            try request.HTTPBody = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions(rawValue: 0))
+        } catch _ {
+            
+        }
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
+            print(response)
+            guard let data = data else {
+                print(error)
+                return
+            }
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                callback(json: json)
+                print(json)
+            } catch _ {
+                print("JSON serialization failed")
+            }
+            
+            let temp = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(temp)
+        }
+        task.resume()
+    }
+    
     // MARK: - NSURLSessionDelegate
     func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
         completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!))

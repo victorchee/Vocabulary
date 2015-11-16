@@ -18,17 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bg-zL-exd">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="15" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cfu-CW-vlv">
+                                <rect key="frame" x="64" y="285" width="473" height="30"/>
                                 <animations/>
-                                <state key="normal" title="Button"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="wnE-Kl-cGi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="search"/>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gZl-a3-cBO"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WOD-G5-PJb"/>
                                 </connections>
-                            </button>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cfu-CW-vlv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TAt-bV-31h"/>
+                            <constraint firstItem="cfu-CW-vlv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jTt-MX-Xdq"/>
+                            <constraint firstItem="cfu-CW-vlv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="qrZ-Xx-FBi"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cwr-XU-FgM">
                         <barButtonItem key="rightBarButtonItem" title="Authorize" id="6rL-w9-o2z">
