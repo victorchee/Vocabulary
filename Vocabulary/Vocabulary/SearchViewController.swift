@@ -29,12 +29,19 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     // MARK: - UITextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let word = textField.text {
-            network.searchWord(word, callback: { (json) -> Void in
-                if let json = json {
-                    print(json)
-                }
-            })
+            // trimming
+            let fixedWord = word.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+            if fixedWord.characters.count > 0 {
+                network.searchWord(fixedWord, callback: { (json) -> Void in
+                    if let json = json {
+                        print(json)
+                        Vocabulary.add(fixedWord)
+                        textField.resignFirstResponder()
+                    }
+                })
+            }
         }
+        
         return true
     }
 }
