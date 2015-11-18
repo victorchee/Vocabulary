@@ -134,6 +134,8 @@ class NetworkInterface: NSObject, NSURLSessionDelegate {
                 print(error)
                 return
             }
+            let temp = NSString(data: data, encoding: NSUTF8StringEncoding)
+            print(temp)
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
                 callback(json: json)
@@ -141,9 +143,6 @@ class NetworkInterface: NSObject, NSURLSessionDelegate {
             } catch _ {
                 print("JSON serialization failed")
             }
-            
-            let temp = NSString(data: data, encoding: NSUTF8StringEncoding)
-            print(temp)
         }
         task.resume()
     }

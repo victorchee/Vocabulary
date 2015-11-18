@@ -34,9 +34,21 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             if fixedWord.characters.count > 0 {
                 network.searchWord(fixedWord, callback: { (json) -> Void in
                     if let json = json {
-                        print(json)
-                        Vocabulary.add(fixedWord)
-                        textField.resignFirstResponder()
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            textField.resignFirstResponder()
+                        })
+                        guard let result = json as? [String : AnyObject] else {
+                            return
+                        }
+                        guard let statusCode = result["status_code"] as? NSNumber else {
+                            return
+                        }
+                        if statusCode.integerValue == 0 {
+                            guard let data = result["data"] as? [String : AnyObject] else {
+                                return
+                            }
+                            Vocabulary.add(data)
+                        }
                     }
                 })
             }

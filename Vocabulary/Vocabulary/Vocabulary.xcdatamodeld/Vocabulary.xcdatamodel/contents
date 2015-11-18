@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
     <entity name="Vocabulary" representedClassName=".Vocabulary" syncable="YES">
+        <attribute name="audioUK" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="audioUS" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="definition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="initial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="learningID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pronunciation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retention" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="targetRetention" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wordID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Vocabulary" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Vocabulary" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>
