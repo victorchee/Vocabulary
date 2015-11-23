@@ -59,7 +59,7 @@ class HistoryViewController: UITableViewController, NSFetchedResultsControllerDe
     private func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
         if let object = fetchedResultsController?.objectAtIndexPath(indexPath) as? Vocabulary {
             cell.textLabel?.text = object.word
-//            cell.detailTextLabel?.text = object.initial
+            cell.detailTextLabel?.text = object.definition
         }
     }
     

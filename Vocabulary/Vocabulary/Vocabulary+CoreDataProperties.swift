@@ -19,7 +19,7 @@ extension Vocabulary {
     @NSManaged var wordID: String?
     @NSManaged var retention: NSDecimalNumber?
     @NSManaged var definition: String?
-    @NSManaged var targetRetention: String?
+    @NSManaged var targetRetention: NSDecimalNumber?
     @NSManaged var learningID: String?
     @NSManaged var pronunciation: String?
     @NSManaged var audioUK: String?

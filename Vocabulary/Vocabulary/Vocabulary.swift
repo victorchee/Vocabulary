@@ -51,6 +51,8 @@ class Vocabulary: NSManagedObject {
         
         do {
             try context.save()
+            
+            CloudKitWrapper.sharedWrapper.insertWord(newEntity)
         } catch {
             let nserror = error as NSError
             NSLog("add word error \(nserror), \(nserror.userInfo)")

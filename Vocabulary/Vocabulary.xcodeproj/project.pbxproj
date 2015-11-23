@@ -21,6 +21,8 @@
 		BBA438121BFB0BF900CEE542 /* Vocabulary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBA438101BFB0BF900CEE542 /* Vocabulary.xcdatamodeld */; };
 		BBA438191BFB0C7F00CEE542 /* Vocabulary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA438171BFB0C7F00CEE542 /* Vocabulary+CoreDataProperties.swift */; };
 		BBA4381A1BFB0C7F00CEE542 /* Vocabulary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA438181BFB0C7F00CEE542 /* Vocabulary.swift */; };
+		BBF5D1901C02E98E003FE5F5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF5D18F1C02E98E003FE5F5 /* CloudKit.framework */; };
+		BBF5D1921C02E9F5003FE5F5 /* CloudKitWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF5D1911C02E9F5003FE5F5 /* CloudKitWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,9 @@
 		BBA438111BFB0BF900CEE542 /* Vocabulary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Vocabulary.xcdatamodel; sourceTree = "<group>"; };
 		BBA438171BFB0C7F00CEE542 /* Vocabulary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Vocabulary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BBA438181BFB0C7F00CEE542 /* Vocabulary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vocabulary.swift; sourceTree = "<group>"; };
+		BBF5D18E1C02E98B003FE5F5 /* Vocabulary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Vocabulary.entitlements; sourceTree = "<group>"; };
+		BBF5D18F1C02E98E003FE5F5 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		BBF5D1911C02E9F5003FE5F5 /* CloudKitWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF5D1901C02E98E003FE5F5 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +62,7 @@
 		BB58BF481BF1BE8C0020AEB8 = {
 			isa = PBXGroup;
 			children = (
+				BBF5D18F1C02E98E003FE5F5 /* CloudKit.framework */,
 				BB58BF531BF1BE8C0020AEB8 /* Vocabulary */,
 				BB58BF521BF1BE8C0020AEB8 /* Products */,
 			);
@@ -72,6 +79,7 @@
 		BB58BF531BF1BE8C0020AEB8 /* Vocabulary */ = {
 			isa = PBXGroup;
 			children = (
+				BBF5D18E1C02E98B003FE5F5 /* Vocabulary.entitlements */,
 				BB58BF541BF1BE8C0020AEB8 /* AppDelegate.swift */,
 				BB58BF561BF1BE8C0020AEB8 /* SearchViewController.swift */,
 				BBA437E61BFB02BA00CEE542 /* HistoryViewController.swift */,
@@ -80,6 +88,7 @@
 				BB58BF661BF1C5500020AEB8 /* NetworkInterface.swift */,
 				BB58BF6A1BF2D27D0020AEB8 /* UserInfo.swift */,
 				BB58BF6C1BF2D7620020AEB8 /* Utility.swift */,
+				BBF5D1911C02E9F5003FE5F5 /* CloudKitWrapper.swift */,
 				BB58BF581BF1BE8C0020AEB8 /* Main.storyboard */,
 				BB58BF5B1BF1BE8C0020AEB8 /* Assets.xcassets */,
 				BB58BF5D1BF1BE8C0020AEB8 /* LaunchScreen.storyboard */,
@@ -123,6 +132,12 @@
 				TargetAttributes = {
 					BB58BF501BF1BE8C0020AEB8 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = YA5C67G66D;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -166,6 +181,7 @@
 				BB58BF571BF1BE8C0020AEB8 /* SearchViewController.swift in Sources */,
 				BBA438121BFB0BF900CEE542 /* Vocabulary.xcdatamodeld in Sources */,
 				BB58BF551BF1BE8C0020AEB8 /* AppDelegate.swift in Sources */,
+				BBF5D1921C02E9F5003FE5F5 /* CloudKitWrapper.swift in Sources */,
 				BB58BF6D1BF2D7620020AEB8 /* Utility.swift in Sources */,
 				BB58BF671BF1C5500020AEB8 /* NetworkInterface.swift in Sources */,
 				BB58BF6B1BF2D27D0020AEB8 /* UserInfo.swift in Sources */,
@@ -285,10 +301,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Vocabulary/Vocabulary.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Vocabulary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorchee.Vocabulary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -296,10 +316,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Vocabulary/Vocabulary.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Vocabulary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victorchee.Vocabulary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
