@@ -79,8 +79,11 @@ class HistoryViewController: UITableViewController, NSFetchedResultsControllerDe
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             if let context = fetchedResultsController?.managedObjectContext {
-                guard let object = fetchedResultsController?.objectAtIndexPath(indexPath) as? NSManagedObject else {
+                guard let object = fetchedResultsController?.objectAtIndexPath(indexPath) as? Vocabulary else {
                     return
+                }
+                if let wordID = object.wordID {
+                    CloudKitWrapper.sharedWrapper.deleteWord(wordID)
                 }
                 context.deleteObject(object)
                 
